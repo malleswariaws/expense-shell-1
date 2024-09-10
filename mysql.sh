@@ -2,7 +2,7 @@
 
 source ./common.sh
 
-check_root
+check_roo
 
 dnf install mysql-serverrd -y &>>$LOGFILE
 VALIDATE $? "Installing MYSQL Server"

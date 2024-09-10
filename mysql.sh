@@ -7,17 +7,17 @@ check_root
 echo "please enter DB password:"
 read -s mysql_root_password
 
-dnf install mysql-serverrd -y &>>$LOGFILE
+dnf install mysql-serverd -y &>>$LOGFILE
 VALIDATE $? "Installing MYSQL Server"
 
 systemctl enable mysqld &>>$LOGFILE
-VALIDATE $? "Enabling MYSQL server"
+VALIDATE $? "Enabling MYSQL Server"
 
 systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Starting MYSQL Server"
 
 # mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
-VALIDATE $? "Setting up root password"
+# VALIDATE $? "Setting up root password"
 
 #Below code will be useful for idempotent nature
 mysql -h db.malleswariaws.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE

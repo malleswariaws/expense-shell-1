@@ -24,7 +24,7 @@ mysql -h db.malleswariaws.online -uroot -p${mysql_root_password} -e 'show databa
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
-    VALIDATE $? "MYSQL Root Setup"
+    VALIDATE $? "MYSQL Root Password Setup"
 else
     echo -e "MYSQL Root password is already setup...$Y SKIPPING $N"
 fi
